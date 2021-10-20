@@ -19,19 +19,27 @@ const Navbar = () => {
       </nav>
       <div className={styles.scl}>
         <Link href="">
-          <a></a>
+          <a>
+            <Github Width="30" Height="30" />
+          </a>
         </Link>
 
         <Link href="">
-          <a></a>
+          <a>
+            <Github Width="30" Height="30" />
+          </a>
         </Link>
 
         <Link href="">
-          <a></a>
+          <a>
+            <Github Width="30" Height="30" />
+          </a>
         </Link>
 
         <Link href="">
-          <a></a>
+          <a>
+            <Github Width="30" Height="30" />
+          </a>
         </Link>
       </div>
     </nav>
