@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./../../styles/Home.module.css"
-import { Logo } from "./SVG"
+import { Logo, Instagram, Twitter, Linkedin, Github } from "./SVG"
 import Link from "next/link"
 const Navbar = () => {
   return (
@@ -17,7 +17,23 @@ const Navbar = () => {
         <Link href="/">API</Link>
         <Link href="/">About</Link>
       </nav>
-      <div className={styles.scl}></div>
+      <div className={styles.scl}>
+        <Link href="">
+          <a></a>
+        </Link>
+
+        <Link href="">
+          <a></a>
+        </Link>
+
+        <Link href="">
+          <a></a>
+        </Link>
+
+        <Link href="">
+          <a></a>
+        </Link>
+      </div>
     </nav>
   )
 }

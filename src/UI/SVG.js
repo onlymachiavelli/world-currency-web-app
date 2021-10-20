@@ -254,7 +254,7 @@ export const Instagram = ({ ...props }) => {
   )
 }
 
-export const Linkeding = ({ ...props }) => {
+export const Linkedin = ({ ...props }) => {
   return (
     <svg
       width={props.Width}
