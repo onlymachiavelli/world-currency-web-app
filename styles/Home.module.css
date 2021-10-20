@@ -22,3 +22,7 @@
 .nav {
   margin-left: 20px;
 }
+.scl {
+  position: absolute;
+  right: 20px;
+}

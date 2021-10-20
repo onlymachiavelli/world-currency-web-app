@@ -17,6 +17,7 @@ const Navbar = () => {
         <Link href="/">API</Link>
         <Link href="/">About</Link>
       </nav>
+      <div className={styles.scl}></div>
     </nav>
   )
 }
