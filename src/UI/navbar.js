@@ -20,25 +20,25 @@ const Navbar = () => {
       <div className={styles.scl}>
         <Link href="">
           <a>
-            <Github Width="30" Height="30" />
+            <Github Width="20" Height="20" />
           </a>
         </Link>
 
         <Link href="">
           <a>
-            <Github Width="30" Height="30" />
+            <Twitter Width="20" Height="20" />
           </a>
         </Link>
 
         <Link href="">
           <a>
-            <Github Width="30" Height="30" />
+            <Instagram Width="20" Height="20" />
           </a>
         </Link>
 
         <Link href="">
           <a>
-            <Github Width="30" Height="30" />
+            <Linkedin Width="20" Height="20" />
           </a>
         </Link>
       </div>
