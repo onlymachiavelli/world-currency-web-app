@@ -1,16 +1,21 @@
-import React from "react";
-import Head from "next/head";
+import React from "react"
+import Head from "next/head"
+import Navbar from "./../src/UI/navbar"
 
-import styles from "./../styles/Home.module.css";
+import styles from "./../styles/Home.module.css"
 
 const Home = () => {
   return (
     <main>
       <Head>
-        <title>My currency App</title>
+        <title>Convert Currencies</title>
       </Head>
-    </main>
-  );
-};
 
-export default Home;
+      <main className={styles.body}>
+        <Navbar />
+      </main>
+    </main>
+  )
+}
+
+export default Home

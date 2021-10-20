@@ -1,10 +1,27 @@
+@font-face {
+  font-family: "quick";
+  src: "./../public/QuickSand/Quicksand-VariableFont_wght.ttf";
+}
+
+:root {
+  --theBlue: #203261;
+  --blueSecdeg: #2a407b;
+  --blueSky: #3d60b9;
+  --Green: #51b58b;
+  --Quick: "quick";
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "quick" !important;
 }
 
 * {
   text-decoration: none;
   outline: none;
+}
+body {
+  background: var(--theBlue);
 }

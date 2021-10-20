@@ -1,5 +1,5 @@
-import React from "react";
+import React from "react"
 
-const callCurrency = () => {};
+const callCurrency = () => {}
 
-export default callCurrency;
+export default callCurrency
