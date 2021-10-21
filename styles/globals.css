@@ -1,6 +1,6 @@
 @font-face {
   font-family: "quick";
-  src: "./../public/QuickSand/Quicksand-VariableFont_wght.ttf";
+  src: url("./../public/QuickSand/Quicksand-VariableFont_wght.ttf");
 }
 
 :root {
