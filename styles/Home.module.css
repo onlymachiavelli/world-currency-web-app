@@ -25,6 +25,7 @@
 .scl {
   position: absolute;
   right: 20px;
+  margin-top: 5px;
 }
 .scl a {
   margin: 5px;
