@@ -4,6 +4,8 @@ import Navbar from "./../src/UI/navbar"
 
 import styles from "./../styles/Home.module.css"
 
+import CurrencyContainer from "../src/UI/Source"
+
 const Home = () => {
   return (
     <main>
@@ -13,6 +15,7 @@ const Home = () => {
 
       <main className={styles.body}>
         <Navbar />
+        <CurrencyContainer />
       </main>
     </main>
   )

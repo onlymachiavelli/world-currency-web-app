@@ -32,4 +32,36 @@
 }
 
 .container {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+#title {
+  color: #fff;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.cont {
+  width: 90%;
+  height: auto;
+  background-color: var(--blueSecdeg);
+  margin: auto;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px 10px 0px;
+}
+
+.convertBlock {
+  background-color: var(--blueSky);
+  width: 40%;
+  height: 200px;
+  margin: 20px;
+  border-radius: 20px;
 }

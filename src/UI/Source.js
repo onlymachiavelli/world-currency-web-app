@@ -4,7 +4,13 @@ import styles from "./../../styles/Home.module.css"
 const CurrencyContainer = ({ ...props }) => {
   return (
     <div className={styles.container}>
-      <div></div>
+      <p id={styles.title}>
+        Converting World Wide Currencies and CryptoCurrencies
+      </p>
+      <div className={styles.cont}>
+        <div className={styles.convertBlock}></div>
+        <div className={styles.convertBlock}></div>
+      </div>
     </div>
   )
 }
