@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./../../styles/Home.module.css"
-
+import Currency from "./Block"
 const CurrencyContainer = ({ ...props }) => {
   return (
     <div className={styles.container}>
@@ -8,8 +8,8 @@ const CurrencyContainer = ({ ...props }) => {
         Converting World Wide Currencies and CryptoCurrencies
       </p>
       <div className={styles.cont}>
-        <div className={styles.convertBlock}></div>
-        <div className={styles.convertBlock}></div>
+        <Currency/>
+        <Currency/>
       </div>
     </div>
   )
