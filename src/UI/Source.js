@@ -1,6 +1,9 @@
 import React from "react"
 import styles from "./../../styles/Home.module.css"
 import Currency from "./Block"
+import callGeo from "../apiCall/location"
+
+callGeo().then(res => console.log(res))
 const CurrencyContainer = ({ ...props }) => {
   return (
     <div className={styles.container}>
