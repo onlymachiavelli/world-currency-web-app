@@ -18,25 +18,25 @@ const Navbar = () => {
         <Link href="/">About</Link>
       </nav>
       <div className={styles.scl}>
-        <Link href="">
+        <Link href="https://github.com/onlymachiavelli">
           <a>
             <Github Width="18" Height="18" />
           </a>
         </Link>
 
-        <Link href="">
+        <Link href="https://twitter.com/onlymachiavelli">
           <a>
             <Twitter Width="18" Height="18" />
           </a>
         </Link>
 
-        <Link href="">
+        <Link href="https://www.instagram.com/onlymachiavelli/">
           <a>
             <Instagram Width="18" Height="18" />
           </a>
         </Link>
 
-        <Link href="">
+        <Link href="https://www.linkedin.com/in/alaa-ddin-472a651b9/">
           <a>
             <Linkedin Width="18" Height="18" />
           </a>
