@@ -61,7 +61,20 @@
 .convertBlock {
   background-color: var(--blueSky);
   width: 40%;
-  height: 200px;
+  height: 250px;
   margin: 20px;
   border-radius: 20px;
+}
+
+.btn {
+  width: 200px;
+  height: 55px;
+  background-color: var(--Green);
+  margin-top: 20px;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: bold;
+  font-family: var(--Quick);
+  cursor: pointer;
 }

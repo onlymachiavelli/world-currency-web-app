@@ -7,10 +7,14 @@ const CurrencyContainer = ({ ...props }) => {
       <p id={styles.title}>
         Converting World Wide Currencies and CryptoCurrencies
       </p>
+      <br />
       <div className={styles.cont}>
         <div className={styles.convertBlock}></div>
         <div className={styles.convertBlock}></div>
       </div>
+      <button className={styles.btn} onClick={props.aCtion}>
+        CONVERT
+      </button>
     </div>
   )
 }
