@@ -21,7 +21,7 @@ const Home = () => {
 
       <main className={styles.body}>
         <Navbar />
-        <CurrencyContainer />
+        <CurrencyContainer Cflag="tn" Tflag="mn" />
       </main>
     </main>
   )

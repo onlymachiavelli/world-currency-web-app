@@ -12,8 +12,8 @@ const CurrencyContainer = ({ ...props }) => {
       </p>
       <br />
       <div className={styles.cont}>
-        <Currency />
-        <Currency />
+        <Currency TheFlag={props.Cflag} />
+        <Currency TheFlag={props.Tflag} />
       </div>
       <button className={styles.btn} onClick={props.aCtion}>
         CONVERT
