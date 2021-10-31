@@ -1,5 +1,5 @@
 import React from "react"
-
-const callCurrency = () => {}
+import axios from 'axios'
+const callCurrency = async() => {}
 
 export default callCurrency
