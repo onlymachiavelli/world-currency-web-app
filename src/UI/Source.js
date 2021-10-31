@@ -3,7 +3,7 @@ import styles from "./../../styles/Home.module.css"
 import Currency from "./Block"
 import callGeo from "../apiCall/location"
 
-callGeo().then(res => console.log(res))
+callGeo().then((res) => console.log(res))
 const CurrencyContainer = ({ ...props }) => {
   return (
     <div className={styles.container}>
@@ -12,8 +12,8 @@ const CurrencyContainer = ({ ...props }) => {
       </p>
       <br />
       <div className={styles.cont}>
-        <Currency/>
-        <Currency/>
+        <Currency />
+        <Currency />
       </div>
       <button className={styles.btn} onClick={props.aCtion}>
         CONVERT
