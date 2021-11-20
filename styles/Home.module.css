@@ -81,19 +81,23 @@
 .flag {
   overflow: hidden;
   border-radius: 50%;
-  width: 50px;
+  width: 70px;
   height: 50px;
-  border-radius: 50%;
-
-  border-radius: 50%;
+  border-radius: 3px;
   overflow: hidden;
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
-.flag img {
-  border-radius: 50%;
+#toCenter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
 }

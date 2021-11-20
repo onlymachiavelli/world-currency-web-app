@@ -5,10 +5,12 @@ const Currency = ({ ...props }) => {
   return (
     <div className={styles.convertBlock}>
       <div className={styles.flag}>
-        <img src={Flag} alt="Flag" width="80px" height="50" />
+        <img src={Flag} alt="Flag" width="70px" height="50" />
       </div>
-      <div className={styles.input}>
-        <input type="text" />
+      <div id={styles.toCenter}>
+        <div className={styles.input}>
+          <input type="text" />
+        </div>
       </div>
     </div>
   )
