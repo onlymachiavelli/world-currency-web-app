@@ -1,5 +1,6 @@
 import React from "react"
 import styles from "./../../styles/Home.module.css"
+import { MoneyBag } from "./SVG"
 const Currency = ({ ...props }) => {
   let Flag = `https://flagcdn.com/w2560/${props.TheFlag}.png`
   return (
@@ -9,6 +10,7 @@ const Currency = ({ ...props }) => {
       </div>
       <div id={styles.toCenter}>
         <div className={styles.input}>
+          <MoneyBag Width="30" Height="30" />
           <input type="text" />
         </div>
       </div>
