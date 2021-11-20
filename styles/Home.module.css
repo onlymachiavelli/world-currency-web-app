@@ -112,3 +112,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.input input {
+  padding: 10px;
+  text-align: center;
+  margin-left: 10px !important;
+  width: 74%;
+  border: none;
+}

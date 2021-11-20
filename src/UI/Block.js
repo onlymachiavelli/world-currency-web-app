@@ -10,8 +10,8 @@ const Currency = ({ ...props }) => {
       </div>
       <div id={styles.toCenter}>
         <div className={styles.input}>
-          <MoneyBag Width="30" Height="30" />
-          <input type="text" />
+          <MoneyBag Width="27" Height="27" />
+          <input type="number" placeholder="Enter The Currency" />
         </div>
       </div>
     </div>
