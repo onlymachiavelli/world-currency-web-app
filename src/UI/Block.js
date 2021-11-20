@@ -7,7 +7,9 @@ const Currency = ({ ...props }) => {
     <div className={styles.convertBlock}>
       <div className={styles.flag}>
         <img src={Flag} alt="Flag" width="70px" height="50" />
+        <p id={styles.cu_title}>Tunisian Currency</p>
       </div>
+
       <div id={styles.toCenter}>
         <div className={styles.input}>
           <MoneyBag Width="27" Height="27" />
