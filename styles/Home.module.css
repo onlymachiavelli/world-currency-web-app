@@ -78,6 +78,11 @@
   font-weight: bold;
   font-family: var(--Quick);
   cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.btn:hover {
+  background: #7eeabc;
 }
 .flag {
   overflow: hidden;
@@ -92,6 +97,7 @@
 }
 .flag img {
   border: 1px solid #fff;
+  border-radius: 5px;
 }
 .input {
   display: block;
