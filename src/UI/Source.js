@@ -21,8 +21,8 @@ const CurrencyContainer = ({ ...props }) => {
           Message="Enter the value"
           readOnly={false}
           Value={from}
-          onChange={(e, setVal) => {
-            setVal(e.value.target)
+          onChange={(e) => {
+            setFrom(e.value.target)
           }}
         />
         <Currency
@@ -30,8 +30,8 @@ const CurrencyContainer = ({ ...props }) => {
           Message="The Result"
           readOnly={true}
           Value={to}
-          onChange={(e, setVal) => {
-            setVal(e.value.target)
+          onChange={(e) => {
+            setTo(e.value.target)
           }}
         />
       </div>
