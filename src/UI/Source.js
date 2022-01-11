@@ -17,7 +17,7 @@ const CurrencyContainer = ({ ...props }) => {
       </div>
       <button className={styles.btn} onClick={props.aCtion}>
         CONVERT
-      </button>
+      </button> 
     </div>
   )
 }
