@@ -56,13 +56,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0px 10px 0px;
+  padding: 60px 0px 60px 0px;
 }
 
 .convertBlock {
   background-color: var(--blueSky);
   width: 40%;
-  height: 250px;
+  height: 220px;
   margin: 20px;
   border-radius: 20px;
 }
@@ -71,7 +71,7 @@
   width: 200px;
   height: 55px;
   background-color: var(--Green);
-  margin-top: 20px;
+  margin-top: 30px;
   border: none;
   color: #fff;
   border-radius: 3px;
