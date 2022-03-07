@@ -22,7 +22,7 @@ const CurrencyContainer = ({ ...props }) => {
           readOnly={false}
           Value={from}
           onChange={(e) => {
-            setFrom(e.value.target)
+            setFrom(e.target.value)
           }}
         />
         <Currency
@@ -31,7 +31,7 @@ const CurrencyContainer = ({ ...props }) => {
           readOnly={true}
           Value={to}
           onChange={(e) => {
-            setTo(e.value.target)
+            setTo(e.target.value)
           }}
         />
       </div>
