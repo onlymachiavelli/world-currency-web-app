@@ -3,7 +3,6 @@ import styles from "./../../styles/Home.module.css"
 import Currency from "./Block"
 import callGeo from "../apiCall/location"
 
-callGeo().then((res) => console.log(res))
 const CurrencyContainer = ({ ...props }) => {
   const [from, setFrom] = useState("")
 

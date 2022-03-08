@@ -8,7 +8,7 @@ const callCurrency = async () => {
   const respone = await axios
     .get(`https://api.currencyapi.com/v3/latest?apikey=${APIKEY}`)
     .then((res) => {
-      res.data
+      return res.data
     })
   return respone
 }

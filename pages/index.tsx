@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Head from "next/head"
 import Navbar from "../src/UI/navbar"
 import axios from "axios"
@@ -12,13 +12,14 @@ import callCurrency from "../src/apiCall/currencycall"
 const Home = () => {
   const [currentCountryCode, setCurrentCountry] = useState("")
   const [test, setTest] = useState({})
-  callGeo().then((res) => setCurrentCountry(res.countryCode))
-  callCurrency().then((res) => {
-    console.log("Shit")
-    console.log(res)
-  })
 
-  console.log(test)
+  useEffect(()=>{
+    callGeo().then((res:any) => setCurrentCountry(res.countryCode))
+    callCurrency().then((res:any) => {
+      console.log(res)
+    })
+  
+  }, [])
 
   return (
     <main>
