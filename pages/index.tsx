@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import Head from "next/head"
-import Navbar from "./../src/UI/navbar"
+import Navbar from "../src/UI/navbar"
 import axios from "axios"
 import styles from "./../styles/Home.module.css"
 
 import CurrencyContainer from "../src/UI/Source"
-import callGeo from "./../src/apiCall/location"
+import callGeo from "../src/apiCall/location"
 let imgApi = "https://flagcdn.com/w2560/za.png"
 import callCurrency from "../src/apiCall/currencycall"
 
@@ -14,7 +14,8 @@ const Home = () => {
   const [test, setTest] = useState({})
   callGeo().then((res) => setCurrentCountry(res.countryCode))
   callCurrency().then((res) => {
-    setTest(res)
+    console.log("Shit")
+    console.log(res)
   })
 
   console.log(test)
