@@ -24,11 +24,11 @@ const Navbar = () =>{
                     <a className='link'>About</a>
                 </Link>
             </nav>
-            <div className='flex absolute right-4 gap-2 mt-2'>
-                <a href=""><Github Width="15" Height="15" /></a>
-                <a href=""><Twitter Width="15" Height="15" /></a>
-                <a href=""><Instagram Width="15" Height="15" /></a>
-                <a href=""><Linkedin Width="15" Height="15" /></a>
+            <div className='flex absolute right-2 gap-2 mt-2'>
+                <a href="https://www.github.com/onlymachiavelli/" target={"_blank"}><Github Width="15" Height="15" /></a>
+                <a href="https://www.twitter.com/onlymachiavelli/" target={"_blank"}><Twitter Width="15" Height="15" /></a>
+                <a href="https://www.instagram.com/onlymachiavelli/" target={"_blank"}><Instagram Width="15" Height="15" /></a>
+                <a href="https://www.linkedin.com/in/alaa-ddin-472a651b9/" target={"_blank"}><Linkedin Width="15" Height="15" /></a>
             </div>
         </nav>
     ) 
