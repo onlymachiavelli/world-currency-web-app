@@ -4,7 +4,7 @@ import {Logo} from './SVG'
 
 const Navbar = () =>{
     return (
-        <nav className='w-full pt-3.5 flex'>
+        <nav className='flex w-full p-2 '>
             <div className=''>
                 <Link href="/">
                     <Logo Width="170" Height="30" />

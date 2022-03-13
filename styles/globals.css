@@ -22,10 +22,6 @@ body {
   font-family: "quick" !important;
 }
 
-* {
-  text-decoration: none;
-  outline: none;
-}
 body {
   background: var(--theBlue);
 }
