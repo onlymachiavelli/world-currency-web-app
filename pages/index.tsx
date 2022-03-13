@@ -11,6 +11,7 @@ const Home = () =>{
         <title>Currency Converter</title>
       </Head>
       <Navbar/>
+      <p className='text-center text-white font-bold mt-4'>Converting World Wide Currencies and CryptoCurrencies</p>
     </main>
   )
 }
