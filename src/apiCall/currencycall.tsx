@@ -6,7 +6,7 @@ const callCurrency = async () => {
   const shit = "http://api.currencylayer.com/live?access_key=${APIKEY}"
 
   const respone = await axios
-    .get(`https://api.currencyapi.com/v3/latest?apikey=${APIKEY}`)
+    .get(`https://api.currencyapi.com/v3/latest?apikey=${APIKEY[1]}`)
     .then((res) => {
       return res.data
     })
