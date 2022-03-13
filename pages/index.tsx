@@ -16,6 +16,7 @@ const Home = () => {
   useEffect(()=>{
     callGeo().then((res:any) => setCurrentCountry(res.countryCode))
     callCurrency().then((res:any) => {
+      
       console.log(res)
     })
   
