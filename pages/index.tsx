@@ -21,7 +21,7 @@ const Home = () =>{
       <Navbar/>
       <p className='text-center text-white font-bold mt-4'>Converting World Wide Currencies and CryptoCurrencies</p>
       <div className='w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-10 flex items-center justify-center'>
-        <CurrBlock enabled={true} />
+        <CurrBlock Flag="https://flagcdn.com/w80/tn.png" enabled={true} />
         <CurrBlock enabled={true} />
       </div>
     </main>
