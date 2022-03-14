@@ -30,7 +30,9 @@ const Home = () =>{
       <div className='w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-10 flex items-center justify-center'>
         <CurrBlock Flag={`https://flagcdn.com/h60/${fromCode}.png`} enabled={true} CountryName={fromName}/>
         <CurrBlock enabled={true} Flag={`https://flagcdn.com/w80/${toCode}.png`} CountryName={toName}/>
+        
       </div>
+      <button className='block m-auto mt-4 text-white font-bold bg-darkGreen w-56 h-12 rounded-sm hover:bg-green duration-1000'>Convert</button>
     </main>
   )
 }

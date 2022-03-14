@@ -7,6 +7,7 @@ module.exports = {
         blue2: "#2a407b",
         blueSky: "#3d60b9",
         green: "#51b58b",
+        darkGreen: "#019457",
       },
       fontFamily: {
         quick: "quick",
