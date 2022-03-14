@@ -7,7 +7,7 @@ import  CurrBlock  from './../src/UI/currencyBlock'
 const Home = () =>{
   const [fromName, setFromName] = useState()
   const [fromCode, setFromCode] = useState()  
-  const [toName, settoName] = useState("United State")
+  const [toName, settoName] = useState("United States")
   const [toCode, settoCode] = useState("us")
   
   useEffect(()=>{
