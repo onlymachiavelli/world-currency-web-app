@@ -17,9 +17,13 @@ const Home = () =>{
         setFromCode(res.countryCode.toLowerCase())
       }
     )
+    callCurrency().then( (res:any) =>{
+      console.log(res)
+    })
+    
   },[])
   
-  
+    console.log(process.env.NEXT_APIKEY)
   return (
     <main className='w-full h-screen'>
       <Head>
