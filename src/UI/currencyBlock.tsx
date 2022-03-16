@@ -6,7 +6,7 @@ const CurrBlock = ({...props}) => {
         <div className=' justify-center items-center bg-blueSky w-3/5 h-auto p-5 rounded-lg pb-7'>
             <div className='flex items-center'>
                 <div className=' block w-11 h-9 rounded-ms '>
-                <img src={props.Flag}  className='w-11 h-8'  />
+                <img src={props.Flag}  className='w-11 h-8 border border-white'  />
                 </div>
                 <p className='text-white font-bold ml-2'>
                     {props.CountryName}
