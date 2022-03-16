@@ -10,7 +10,7 @@ const Home = () =>{
   const [toName, settoName] = useState("United States")
   const [toCode, settoCode] = useState("us")
   
-  useEffect(()=>{
+  useEffect(():void=>{
     callGeo().then(
       (res:any) =>{
         setFromName(res.countryName)
@@ -22,9 +22,7 @@ const Home = () =>{
     })
     
   },[])
-  
-    console.log(process.env.NEXT_APIKEY)
-  return (
+    return (
     <main className='w-full h-screen'>
       <Head>
         <title>Currency Converter</title>
