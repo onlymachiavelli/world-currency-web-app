@@ -10,7 +10,7 @@ const Home = () =>{
   const [fromCode, setFromCode] = useState()  
   const [toName, settoName] = useState("United States")
   const [toCode, settoCode] = useState("us")
-  const {response, setResponse} = useConverter(null,null,null)
+  const {response, setResponse} = useConverter(fromCode,toCode,null)
 
   useEffect(():void=>{
     callGeo().then(
