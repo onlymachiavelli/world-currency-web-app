@@ -4,12 +4,14 @@ import callCurrency from '../src/apiCall/currencycall'
 import callGeo from '../src/apiCall/location'
 import Head from 'next/head'
 import  CurrBlock  from './../src/UI/currencyBlock'
+import useConverter from '../src/hook/useConverter'
 const Home = () =>{
   const [fromName, setFromName] = useState()
   const [fromCode, setFromCode] = useState()  
   const [toName, settoName] = useState("United States")
   const [toCode, settoCode] = useState("us")
-  
+  const {response, setResponse} = useConverter(null,null,null)
+
   useEffect(():void=>{
     callGeo().then(
       (res:any) =>{
@@ -22,6 +24,9 @@ const Home = () =>{
     })
     
   },[])
+
+
+  
     return (
     <main className='w-full h-screen'>
       <Head>

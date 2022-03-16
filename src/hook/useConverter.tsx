@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
-
-const useConverter = (fronC:any, toC:any):any =>{
+import axios from 'axios'
+const useConverter = (fronC:any, toC:any, amount:any):any =>{
     const [response, setResponse] = useState(0) 
     useEffect(():void=>{
 
     }, [response])
     return {response, setResponse}
 }
+
+export default useConverter
