@@ -4,13 +4,13 @@ import {Logo, Instagram, Twitter, Linkedin, Github} from './SVG'
 
 const Navbar = () =>{
     return (
-        <nav className='flex w-full p-2 items-center'>
+        <nav className='flex w-full p-2 items-center flex'>
             <div className=''>
                 <Link href="/">
                     <Logo Width="170" Height="30" />
                 </Link>
             </div> 
-            <nav className='flex gap-3 ml-7 mt-1.5' >
+            <nav className=' gap-3 ml-7 mt-1.5 hidden md:flex' >
                 <Link href="/">
                     <a className='link'>Home</a>
                 </Link>

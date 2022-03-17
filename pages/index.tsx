@@ -25,22 +25,19 @@ const Home = () =>{
     })
     
   },[])
-
-
-  
     return (
     <main className='w-full h-screen'>
       <Head>
         <title>Currency Converter</title>
       </Head>
       <Navbar/>
-      <p className='text-center text-white font-bold mt-4'>Converting World Wide Currencies and CryptoCurrencies</p>
+      <p className='text-center text-sm ms:text-md text-white font-bold mt-4'>Converting World Wide Currencies and CryptoCurrencies</p>
       <div className='w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-10 flex items-center justify-center md:flex-row flex-col'>
         <CurrBlock Flag={`https://flagcdn.com/h60/${fromCode}.png`} enabled={true} CountryName={fromName}/>
         <CurrBlock enabled={true} Flag={`https://flagcdn.com/w80/${toCode}.png`} CountryName={toName}/>
         
       </div>
-      <button className='block m-auto mt-4 text-white font-bold bg-darkGreen w-56 h-12 rounded-sm hover:bg-green duration-1000'>Convert</button>
+      <button className='block m-auto mt-4 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000'>Convert</button>
     </main>
   )
 }
