@@ -14,7 +14,7 @@ const CurrBlock = ({...props}) => {
             </div>
             <div className='flex justify-center items-center bg-white p-2 mt-4 border border-blue'>
                 <MoneyBag Width="17" Height="19" />
-                <input type={"text"} className='outline-0 text-center text-blue w-full font-bold bg-transparent'/>
+                <input type={"text"} value={props.inputValue} className='outline-0 text-center text-blue w-full font-bold bg-transparent'/>
             </div>
             <button className='block m-auto mt-3'>
                 <Down Width="25" Height="25" />
