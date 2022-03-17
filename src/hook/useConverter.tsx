@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-const useConverter = (fronC:any, toC:any, amount:any):any =>{
+const useConverter = (fronC:any, toC:any):any =>{
     const [response, setResponse] = useState(0) 
     useEffect(():void=>{
 
