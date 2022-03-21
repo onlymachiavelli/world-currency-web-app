@@ -31,6 +31,7 @@ const useConverter = ():any =>{
                     },
                     to:exchange.to
                 })
+                console.log(res)
             }
         )
         worldDatas("country", exchange.from.name, false).then(
@@ -47,7 +48,7 @@ const useConverter = ():any =>{
                 )
             }
         )
-    }, [response, exchange])
+    }, [])
     return {response, setResponse, exchange, setEx}
 }
 
