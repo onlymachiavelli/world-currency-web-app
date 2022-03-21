@@ -6,7 +6,7 @@ import Head from 'next/head'
 import  CurrBlock  from './../src/UI/currencyBlock'
 import useConverter from '../src/hook/useConverter'
 import currencyMenu from '../src/UI/currencyMeny'
-
+import worldDatas from '../src/apiCall/worldWide'
 
 import { countryCodes } from '../src/apiCall/co'
 const Home = () =>{
