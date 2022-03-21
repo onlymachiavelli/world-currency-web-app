@@ -24,7 +24,7 @@ const useConverter = (fromIso:any, toIso:any):any =>{
         worldDatas("iso2", fromIso, false).then(
             res =>{
                 setFrom({
-                        code:res["data"]["iso2"],
+                        code:res["data"]["iso2"].toLowerCase(),
                         name:res["data"]["countryName"],
                         currency:res["data"]["currencyCode"]
                     })
@@ -33,7 +33,7 @@ const useConverter = (fromIso:any, toIso:any):any =>{
         worldDatas("iso2", toIso, false).then(
             res =>{
                 setTcurrency({
-                    code:res["data"]["iso2"],
+                    code:res["data"]["iso2"].toLowerCase(),
                     name:res["data"]["countryName"],
                     currency:res["data"]["currencyCode"],
                 })
