@@ -4,7 +4,9 @@ import axios from 'axios'
 import callCurrency from '../apiCall/currencycall'
 import callGeo from '../apiCall/location'
 import worldDatas from '../apiCall/worldWide'
-const useConverter = (fromIso:any, toIso:any):any =>{
+const useConverter = (toIso:any):any =>{
+    const [fromIso, setFIso] = useState()
+    
     const [fromCurrency, setFrom] = useState(
         {
             code:String,
@@ -20,7 +22,10 @@ const useConverter = (fromIso:any, toIso:any):any =>{
     
     const [response, setResponse] = useState(0) 
     useEffect(():void=>{
-        
+        callGeo().then(res=>{
+            setFIso(res["countryCode"])
+        })
+        console.log(fromIso)
         worldDatas("iso2", fromIso, false).then(
             res =>{
                 setFrom({
@@ -39,7 +44,7 @@ const useConverter = (fromIso:any, toIso:any):any =>{
                 })
             }
         )
-    }, [response,fromCurrency, toCurrency ])
+    }, [response,fromCurrency, toCurrency ,fromIso])
     return {response, setResponse, setFrom, setTcurrency, fromCurrency, toCurrency}
 }
 
