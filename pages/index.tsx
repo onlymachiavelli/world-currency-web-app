@@ -38,14 +38,18 @@ const Home = () => {
         </p>
         <div className="w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-14 flex items-center justify-center md:flex-row flex-col">
           <CurrBlock
-            Flag={`https://flagcdn.com/h60/${fromCurrency["code"]}.png`}
+            Flag={`https://flagcdn.com/h60/${fromCurrency[
+              "code"
+            ].toLowerCase()}.png`}
             enabled={true}
             CountryName={fromCurrency.name}
             inputValue={inPval}
           />
           <CurrBlock
             enabled={true}
-            Flag={`https://flagcdn.com/w80/${toCurrency["code"]}.png`}
+            Flag={`https://flagcdn.com/w80/${toCurrency[
+              "code"
+            ].toLowerCase()}.png`}
             CountryName={toCurrency.name}
             inputValue={response}
           />

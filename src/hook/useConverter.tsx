@@ -8,37 +8,42 @@ const useConverter = (toIso: any): any => {
   const [fromIso, setFIso] = useState()
 
   const [fromCurrency, setFrom] = useState({
-    code: String,
-    name: String,
-    currency: String,
+    code: "",
+    name: "",
+    currency: "",
   })
   const [toCurrency, setTcurrency] = useState({
-    code: String,
-    name: String,
-    currency: String,
+    code: "",
+    name: "",
+    currency: "",
   })
 
   const [response, setResponse] = useState(0)
-  useEffect((): void => {
-    callGeo().then((res) => {
-      setFIso(res["countryCode"])
-    })
-    console.log(fromIso)
-    worldDatas("iso2", fromIso, false).then((res) => {
-      setFrom({
-        code: res["data"]["iso2"].toLowerCase(),
-        name: res["data"]["countryName"],
-        currency: res["data"]["currencyCode"],
-      })
-    })
-    worldDatas("iso2", toIso, false).then((res) => {
-      setTcurrency({
-        code: res["data"]["iso2"].toLowerCase(),
-        name: res["data"]["countryName"],
-        currency: res["data"]["currencyCode"],
-      })
-    })
-  }, [])
+  useEffect(() => {
+    ;(async () => {
+      const callGeoRes = await callGeo()
+      if (callGeoRes) setFIso(callGeoRes["countryCode"])
+      if (fromIso) {
+        const res = await worldDatas("iso2", fromIso, false)
+        if (res["data"]) {
+          setFrom({
+            code: res["data"]["iso2"],
+            name: res["data"]["countryName"],
+            currency: res["data"]["currencyCode"],
+          })
+        }
+      }
+
+      const worldDatasRes = await worldDatas("iso2", toIso, false)
+      if (worldDatasRes["data"]) {
+        setTcurrency({
+          code: worldDatasRes["data"]["iso2"].toLowerCase(),
+          name: worldDatasRes["data"]["countryName"],
+          currency: worldDatasRes["data"]["currencyCode"],
+        })
+      }
+    })()
+  }, [fromIso, toIso])
   return {
     response,
     setResponse,
