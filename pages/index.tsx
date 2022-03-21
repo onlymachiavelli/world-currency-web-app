@@ -30,11 +30,20 @@ const Home = () =>{
       })
 
 
-    })*/
+    })
     setUs({
       from:countryCodes[fromCode].value,
       to:countryCodes[toCode].value
     })
+    fetch('https://worldwideapi.herokuapp.com/')
+  .then(response => response.json())
+  .then(data => console.log(data));
+    */
+    
+    worldDatas("country", "morocco", true).then((res) =>{
+      console.log(res)
+    })
+    
   },[])
 
   
