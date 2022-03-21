@@ -11,12 +11,17 @@ import worldDatas from '../src/apiCall/worldWide'
 import { countryCodes } from '../src/apiCall/co'
 const Home = () =>{
   
-  const {response, setResponse, setFrom, setTcurrency, fromCurrency, toCurrency} = useConverter("tn", "us")
-  const [inPval, setVal] = useState(1)
-  useEffect(()=>{
-    
-  },[])
   
+  const [inPval, setVal] = useState(1)
+  const [geo, setGeo] = useState()
+
+  useEffect(()=>{
+    callGeo().then(
+      res => { setGeo(res["countryCode"])}
+    )
+  },[])
+  console.log(geo)
+  const {response, setResponse, setFrom, setTcurrency, fromCurrency, toCurrency} = useConverter(geo, "us")
     return (
     <main className='w-full h-screen '>
       <Head>
