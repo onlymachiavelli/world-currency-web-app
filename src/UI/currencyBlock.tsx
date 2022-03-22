@@ -17,6 +17,11 @@ const CurrBlock = ({ ...props }) => {
           type={"text"}
           value={props.inputValue}
           className="outline-0 text-center text-blue w-full font-bold bg-transparent"
+          onChange={
+              (e)=>{
+                  e.target.value
+              }
+          }
         />
       </div>
       <button className="block m-auto mt-3">

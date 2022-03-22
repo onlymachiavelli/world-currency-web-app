@@ -24,7 +24,9 @@ const Home = () => {
     setTcurrency,
     fromCurrency,
     toCurrency,
+    exchange
   } = useConverter("us")
+  console.log(exchange)
   return (
     <main className="w-full h-screen ">
       <Head>

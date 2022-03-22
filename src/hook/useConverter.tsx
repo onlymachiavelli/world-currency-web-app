@@ -6,6 +6,11 @@ import callGeo from "../apiCall/location"
 import worldDatas from "../apiCall/worldWide"
 const useConverter = (toIso: any): any => {
   const [fromIso, setFIso] = useState()
+  const [exchange, setEx] = useState({
+    fromUSD:0.0,
+    toUSD:0.0
+  })
+
 
   const [fromCurrency, setFrom] = useState({
     code: "",
@@ -42,7 +47,25 @@ const useConverter = (toIso: any): any => {
           currency: worldDatasRes["data"]["currencyCode"],
         })
       }
+
+      console.log(toCurrency)
+
+      const currencyResponse = await callCurrency()
+      if (currencyResponse) {
+        setEx({
+          fromUSD:currencyResponse["data"][fromCurrency.currency]["value"],
+          toUSD:currencyResponse["data"][toCurrency.code]["value"]
+        })
+      }
     })()
+
+    
+    
+
+    
+
+
+    
   }, [fromIso, toIso])
   return {
     response,
@@ -51,6 +74,8 @@ const useConverter = (toIso: any): any => {
     setTcurrency,
     fromCurrency,
     toCurrency,
+    setEx,
+    exchange
   }
 }
 
