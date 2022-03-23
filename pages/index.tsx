@@ -62,7 +62,8 @@ const Home = () => {
   convert(
     {
       iso2:toData.iso2,
-      currencyCode:fromData.currencyCode
+      currencyCode:fromData.currencyCode,
+      val:1
     }
     ,{
       iso2:toData.iso2,
@@ -86,15 +87,29 @@ const Home = () => {
             enabled={true}
             CountryName={fromData.name}
             inputValue={inPval}
+            onChange = {(e:any)=> e.target.value}
           />
           <CurrBlock
             enabled={true}
             Flag={`https://flagcdn.com/w80/${toData.iso2}.png`}
             CountryName={toData.name}
-            inputValue={""}
+            
+            inputValue={response}
           />
         </div>
-        <button className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000">
+        <button className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000" onClick={()=>{
+          convert(
+            {
+              iso2:toData.iso2,
+              currencyCode:fromData.currencyCode,
+              val:inPval
+            }
+            ,{
+              iso2:toData.iso2,
+              currencyCode:fromData.currencyCode
+            }
+            )
+        }}>
           Convert
         </button>
       </div>

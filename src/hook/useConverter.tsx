@@ -93,6 +93,24 @@ const useConverter =() =>{
 
   
   const convert = (from:any, to:any):void =>{
+    let a:number,b:number
+    useEffect(()=>{
+      ;(async() => {
+        const currencyResponse:any = await callCurrency()
+        if (currencyResponse){
+          a = currencyResponse.data[from.currencyCode].value
+          b = currencyResponse.data[to.currencyCode].value
+        }
+        
+      })
+    },
+    [])
+
+    console.log({
+      fromVal : a, 
+      toVal : b , 
+      res : (b*from.val)/a 
+    })
   }
 
   return {convert , response}
