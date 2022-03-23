@@ -4,15 +4,17 @@ import callCurrency from "../src/apiCall/currencycall"
 import callGeo from "../src/apiCall/location"
 import Head from "next/head"
 import CurrBlock from "./../src/UI/currencyBlock"
-import useConverter from "../src/hook/useConverter"
+//import useConverter from "../src/hook/useConverter"
 import currencyMenu from "../src/UI/currencyMeny"
 import worldDatas from "../src/apiCall/worldWide"
 
 import { countryCodes } from "../src/apiCall/co"
+
 const Home = () => {
-  const [from, setcFrom] = useState()
+  /*
+    const [from, setcFrom] = useState()
   const [to, setTTo] = useState("us")
-  const [inPval, setVal] = useState(1)
+  
   const [geo, setGeo] = useState()
 
   useEffect(() => {}, [])
@@ -27,6 +29,36 @@ const Home = () => {
     exchange
   } = useConverter("us")
   console.log(exchange)
+  */
+  const [inPval, setVal] = useState(1)
+  const [fromData, setFromData] = useState({
+    name:"",
+    currencyCode:"",
+    iso2:""
+  })
+  const [toData, setToData] = useState({
+    name:"United States Of America",
+    currencyCode:"USD",
+    iso2:"us"
+  })
+
+  useEffect(()=>{
+    callGeo().then(
+      res =>{
+        if (res){
+          setFromData({
+            name:res.countryName,
+            currencyCode:fromData.currencyCode,
+            iso2:res.countryCode.toLowerCase()
+
+          })
+        }
+      }
+    )
+    
+    
+  },[])
+  console.log(fromData)
   return (
     <main className="w-full h-screen ">
       <Head>
@@ -40,20 +72,16 @@ const Home = () => {
         </p>
         <div className="w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-14 flex items-center justify-center md:flex-row flex-col">
           <CurrBlock
-            Flag={`https://flagcdn.com/h60/${fromCurrency[
-              "code"
-            ].toLowerCase()}.png`}
+            Flag={`https://flagcdn.com/h60/${fromData.iso2}.png`}
             enabled={true}
-            CountryName={fromCurrency.name}
+            CountryName={fromData.name}
             inputValue={inPval}
           />
           <CurrBlock
             enabled={true}
-            Flag={`https://flagcdn.com/w80/${toCurrency[
-              "code"
-            ].toLowerCase()}.png`}
-            CountryName={toCurrency.name}
-            inputValue={response}
+            Flag={`https://flagcdn.com/w80/${toData.iso2}.png`}
+            CountryName={toData.name}
+            inputValue={""}
           />
         </div>
         <button className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000">

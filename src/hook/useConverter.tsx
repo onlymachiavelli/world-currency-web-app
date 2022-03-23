@@ -4,6 +4,12 @@ import axios from "axios"
 import callCurrency from "../apiCall/currencycall"
 import callGeo from "../apiCall/location"
 import worldDatas from "../apiCall/worldWide"
+
+
+
+
+
+/*
 const useConverter = (toIso: any): any => {
   const [fromIso, setFIso] = useState()
   const [exchange, setEx] = useState({
@@ -78,5 +84,14 @@ const useConverter = (toIso: any): any => {
     exchange
   }
 }
+
+export default useConverter
+*/
+
+
+const useConverter =() =>{
+  
+}
+
 
 export default useConverter
