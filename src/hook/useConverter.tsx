@@ -88,24 +88,28 @@ const useConverter = (toIso: any): any => {
 export default useConverter
 */
 
+
+const usegodDamnCurrency = () =>{
+  const [result, setR] = useState({})
+  useEffect(()=>{
+    callCurrency().then((res:any) =>{
+      if (res) {
+        setR(res.data)
+      }
+    })
+  },[])
+  return {result} 
+} 
+
 const useConverter =() =>{
   const [response, setResponse]   = useState(0)
 
-  
+  const {result} = usegodDamnCurrency()
   const convert = (from:any, to:any):void =>{
+    console.log(result)
     let a:number,b:number
-    useEffect(()=>{
-      ;(async() => {
-        const currencyResponse:any = await callCurrency()
-        if (currencyResponse){
-          a = currencyResponse.data[from.currencyCode].value
-          b = currencyResponse.data[to.currencyCode].value
-        }
-        
-      })
-    },
-    [])
-
+    //a = result[from.currencyCode].value
+    //b = result[to.currencyCode].value
     console.log({
       fromVal : a, 
       toVal : b , 

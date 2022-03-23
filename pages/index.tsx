@@ -55,9 +55,22 @@ const Home = () => {
         }
       }
     )
-    
-    
+    ;
+    (
+      async()=>{
+        const world:any = await worldDatas("iso2", fromData.iso2, false)
+        if (world) {
+          setFromData({
+            name:fromData.name,
+            currencyCode:world.currencyCode,
+            iso2:fromData.iso2,
+
+          })
+        }
+      }
+    )
   },[])
+  console.log(fromData)
   const {convert, response} = useConverter()
   convert(
     {
@@ -70,6 +83,8 @@ const Home = () => {
       currencyCode:fromData.currencyCode
     }
     )
+
+
   return (
     <main className="w-full h-screen ">
       <Head>

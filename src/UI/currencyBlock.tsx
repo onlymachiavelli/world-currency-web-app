@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { MoneyBag, Down } from "./SVG"
 const CurrBlock = ({ ...props }) => {
-  console.log("country name", props.CountryName)
 
   return (
     <div className=" justify-center items-center bg-blueSky md:w-3/5 h-auto p-5 rounded-lg pb-7 w-11/12">
