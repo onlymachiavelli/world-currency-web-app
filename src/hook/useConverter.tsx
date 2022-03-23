@@ -88,9 +88,14 @@ const useConverter = (toIso: any): any => {
 export default useConverter
 */
 
-
 const useConverter =() =>{
+  const [response, setResponse]   = useState(0)
+
   
+  const convert = (from:any, to:any):void =>{
+  }
+
+  return {convert , response}
 }
 
 

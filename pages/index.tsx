@@ -4,11 +4,12 @@ import callCurrency from "../src/apiCall/currencycall"
 import callGeo from "../src/apiCall/location"
 import Head from "next/head"
 import CurrBlock from "./../src/UI/currencyBlock"
-//import useConverter from "../src/hook/useConverter"
+import useConverter from "../src/hook/useConverter"
 import currencyMenu from "../src/UI/currencyMeny"
 import worldDatas from "../src/apiCall/worldWide"
 
 import { countryCodes } from "../src/apiCall/co"
+
 
 const Home = () => {
   /*
@@ -44,13 +45,12 @@ const Home = () => {
 
   useEffect(()=>{
     callGeo().then(
-      res =>{
+      (res:any) =>{
         if (res){
           setFromData({
             name:res.countryName,
             currencyCode:fromData.currencyCode,
             iso2:res.countryCode.toLowerCase()
-
           })
         }
       }
@@ -58,7 +58,17 @@ const Home = () => {
     
     
   },[])
-  console.log(fromData)
+  const {convert, response} = useConverter()
+  convert(
+    {
+      iso2:toData.iso2,
+      currencyCode:fromData.currencyCode
+    }
+    ,{
+      iso2:toData.iso2,
+      currencyCode:fromData.currencyCode
+    }
+    )
   return (
     <main className="w-full h-screen ">
       <Head>
