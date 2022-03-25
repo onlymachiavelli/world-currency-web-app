@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import Navbar from "../src/UI/Navbar"
 import callCurrency from "../src/apiCall/currencycall"
 import callGeo from "../src/apiCall/location"
@@ -6,6 +6,7 @@ import Head from "next/head"
 import CurrBlock from "./../src/UI/currencyBlock"
 import currencyMenu from "../src/UI/currencyMeny"
 import worldDatas from "../src/apiCall/worldWide"
+import useConverter from "../src/hook/useConverter"
 import { countryCodes } from "../src/apiCall/co"
 
 const Home = () =>{
@@ -15,25 +16,36 @@ const Home = () =>{
   const [fromCurrency, setfCurrency] = useState("")
 
   //toPart 
+  const [toName , settName] = useState("United States Of America")
+  const [toCode, settCode] = useState("us")
+  const [toCurrency, sttCurrency] = useState("USD")
+
+  const [inValue, setV] = useState(0)
   useEffect(()=>{
     callGeo().then(
       (res:any) =>{
         if(res){
-          setfName(res.CountryName)
+          setfName(res.countryName)
           setfCode(res.countryCode.toLowerCase())
         }
       }
       
     )
-    worldDatas("iso2", fromCode,false).then(
-      ((res:any)=>{
-        if(res){
-          setfCurrency(res.data.currencyCode)
-        }
-      })
-    )
-  },[])
-  console.log(fromCurrency)
+    if(fromCode){
+      worldDatas("iso2", fromCode,false).then(
+        ((res:any)=>{
+          if(res){
+            setfCurrency(res.data.currencyCode)
+          }
+        })
+      )
+    }
+  },[fromCode])
+
+  const {datas, convert, response} = useConverter()
+
+  convert(fromCurrency, toCurrency)  
+
   return (
     <main className="w-full h-screen ">
       <Head>
@@ -50,15 +62,15 @@ const Home = () =>{
             Flag={`https://flagcdn.com/h60/${fromCode}.png`}
             enabled={true}
             CountryName={fromName}
-            inputValue={""}
+            inputValue={inValue}
             onChange = {(e:any)=> e.target.value}
           />
           <CurrBlock
             enabled={true}
-            Flag={`https://flagcdn.com/w80/${"us"}.png`}
-            CountryName={""}
-            
-            inputValue={""}
+            Flag={`https://flagcdn.com/w80/${toCode}.png`}
+            CountryName={toName}
+            onChange = {(e:any)=> e.target.value}
+            inputValue={response}
           />
         </div>
         <button className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000" onClick={()=>{

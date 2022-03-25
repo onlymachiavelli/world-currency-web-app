@@ -13,7 +13,7 @@ const CurrBlock = ({ ...props }) => {
       <div className="flex justify-center items-center bg-white p-2 mt-4 border border-blue">
         <MoneyBag Width="17" Height="19" />
         <input
-          type={"text"}
+          type={"number"}
           value={props.inputValue}
           className="outline-0 text-center text-blue w-full font-bold bg-transparent"
           onChange={props.onChange}
