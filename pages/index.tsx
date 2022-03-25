@@ -6,8 +6,34 @@ import Head from "next/head"
 import CurrBlock from "./../src/UI/currencyBlock"
 import currencyMenu from "../src/UI/currencyMeny"
 import worldDatas from "../src/apiCall/worldWide"
-
 import { countryCodes } from "../src/apiCall/co"
+
+const Home = () =>{
+  //from part 
+  const [fromName, setfName]  = useState("")
+  const [fromCode, setfCode] = useState("")
+  const [fromCurrency, setfCurrency] = useState("")
+
+  //toPart 
+  useEffect(()=>{
+    callGeo().then(
+      (res:any) =>{
+        if(res){
+          setfName(res.CountryName)
+          setfCode(res.countryCode.toLowerCase())
+        }
+      }
+      
+    )
+    worldDatas("iso2", fromCode,false).then(
+      ((res:any)=>{
+        if(res){
+          setfCurrency(res.data.currencyCode)
+        }
+      })
+    )
+  },[])
+  console.log(fromCurrency)
   return (
     <main className="w-full h-screen ">
       <Head>
@@ -21,32 +47,22 @@ import { countryCodes } from "../src/apiCall/co"
         </p>
         <div className="w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-14 flex items-center justify-center md:flex-row flex-col">
           <CurrBlock
-            Flag={`https://flagcdn.com/h60/${fromData.iso2}.png`}
+            Flag={`https://flagcdn.com/h60/${fromCode}.png`}
             enabled={true}
-            CountryName={fromData.name}
-            inputValue={inPval}
+            CountryName={fromName}
+            inputValue={""}
             onChange = {(e:any)=> e.target.value}
           />
           <CurrBlock
             enabled={true}
-            Flag={`https://flagcdn.com/w80/${toData.iso2}.png`}
-            CountryName={toData.name}
+            Flag={`https://flagcdn.com/w80/${"us"}.png`}
+            CountryName={""}
             
-            inputValue={response}
+            inputValue={""}
           />
         </div>
         <button className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000" onClick={()=>{
-          convert(
-            {
-              iso2:toData.iso2,
-              currencyCode:fromData.currencyCode,
-              val:inPval
-            }
-            ,{
-              iso2:toData.iso2,
-              currencyCode:fromData.currencyCode
-            }
-            )
+          
         }}>
           Convert
         </button>
