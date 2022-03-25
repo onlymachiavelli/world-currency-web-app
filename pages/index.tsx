@@ -4,87 +4,10 @@ import callCurrency from "../src/apiCall/currencycall"
 import callGeo from "../src/apiCall/location"
 import Head from "next/head"
 import CurrBlock from "./../src/UI/currencyBlock"
-import useConverter from "../src/hook/useConverter"
 import currencyMenu from "../src/UI/currencyMeny"
 import worldDatas from "../src/apiCall/worldWide"
 
 import { countryCodes } from "../src/apiCall/co"
-
-
-const Home = () => {
-  /*
-    const [from, setcFrom] = useState()
-  const [to, setTTo] = useState("us")
-  
-  const [geo, setGeo] = useState()
-
-  useEffect(() => {}, [])
-
-  const {
-    response,
-    setResponse,
-    setFrom,
-    setTcurrency,
-    fromCurrency,
-    toCurrency,
-    exchange
-  } = useConverter("us")
-  console.log(exchange)
-  */
-  const [inPval, setVal] = useState(1)
-  const [fromData, setFromData] = useState({
-    name:"",
-    currencyCode:"",
-    iso2:""
-  })
-  const [toData, setToData] = useState({
-    name:"United States Of America",
-    currencyCode:"USD",
-    iso2:"us"
-  })
-
-  useEffect(()=>{
-    callGeo().then(
-      (res:any) =>{
-        if (res){
-          setFromData({
-            name:res.countryName,
-            currencyCode:fromData.currencyCode,
-            iso2:res.countryCode.toLowerCase()
-          })
-        }
-      }
-    )
-    ;
-    (
-      async()=>{
-        const world:any = await worldDatas("iso2", fromData.iso2, false)
-        if (world) {
-          setFromData({
-            name:fromData.name,
-            currencyCode:world.currencyCode,
-            iso2:fromData.iso2,
-
-          })
-        }
-      }
-    )
-  },[])
-  console.log(fromData)
-  const {convert, response} = useConverter()
-  convert(
-    {
-      iso2:toData.iso2,
-      currencyCode:fromData.currencyCode,
-      val:1
-    }
-    ,{
-      iso2:toData.iso2,
-      currencyCode:fromData.currencyCode
-    }
-    )
-
-
   return (
     <main className="w-full h-screen ">
       <Head>
