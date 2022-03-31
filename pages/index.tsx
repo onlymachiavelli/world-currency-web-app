@@ -63,7 +63,7 @@ const Home = () =>{
             enabled={true}
             CountryName={fromName}
             inputValue={inValue}
-            onChange = {(e:any)=> e.target.value}
+            onChange = {(e:any)=> setV(e.target.value)}
           />
           <CurrBlock
             enabled={true}
