@@ -20,7 +20,8 @@ const useConverter = () => {
       const fromV: any = datas["data"][fromUSD]["value"]
       const toV: any = datas["data"][to]
       console.log(datas["data"][to])
-      setRes(Number((fromV * from.inValue) / toV))
+      const res = Number((fromV * from.inValue) / toV)
+      setRes(res)
       console.log(response)
     }
   }
