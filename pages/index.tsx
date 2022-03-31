@@ -9,42 +9,37 @@ import worldDatas from "../src/apiCall/worldWide"
 import useConverter from "../src/hook/useConverter"
 import { countryCodes } from "../src/apiCall/co"
 
-const Home = () =>{
-  //from part 
-  const [fromName, setfName]  = useState("")
+const Home = () => {
+  //from part
+  const [fromName, setfName] = useState("")
   const [fromCode, setfCode] = useState("")
   const [fromCurrency, setfCurrency] = useState("")
 
-  //toPart 
-  const [toName , settName] = useState("United States Of America")
+  //toPart
+  const [toName, settName] = useState("United States Of America")
   const [toCode, settCode] = useState("us")
   const [toCurrency, sttCurrency] = useState("USD")
 
   const [inValue, setV] = useState(0)
-  useEffect(()=>{
-    callGeo().then(
-      (res:any) =>{
-        if(res){
-          setfName(res.countryName)
-          setfCode(res.countryCode.toLowerCase())
-        }
+  useEffect(() => {
+    callGeo().then((res: any) => {
+      if (res) {
+        setfName(res.countryName)
+        setfCode(res.countryCode.toLowerCase())
       }
-      
-    )
-    if(fromCode){
-      worldDatas("iso2", fromCode,false).then(
-        ((res:any)=>{
-          if(res){
-            setfCurrency(res.data.currencyCode)
-          }
-        })
-      )
+    })
+    if (fromCode) {
+      worldDatas("iso2", fromCode, false).then((res: any) => {
+        if (res) {
+          setfCurrency(res.data.currencyCode)
+        }
+      })
     }
-  },[fromCode])
+  }, [fromCode])
 
-  const {datas, convert, response} = useConverter()
+  const { datas, convert, response } = useConverter()
 
-  convert(fromCurrency, toCurrency)  
+  convert({ fromCurrency, inValue }, toCurrency)
 
   return (
     <main className="w-full h-screen ">
@@ -63,19 +58,20 @@ const Home = () =>{
             enabled={true}
             CountryName={fromName}
             inputValue={inValue}
-            onChange = {(e:any)=> setV(e.target.value)}
+            onChange={(e: any) => setV(e.target.value)}
           />
           <CurrBlock
             enabled={true}
             Flag={`https://flagcdn.com/w80/${toCode}.png`}
             CountryName={toName}
-            onChange = {(e:any)=> e.target.value}
+            onChange={(e: any) => e.target.value}
             inputValue={response}
           />
         </div>
-        <button className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000" onClick={()=>{
-          
-        }}>
+        <button
+          className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000"
+          onClick={() => {}}
+        >
           Convert
         </button>
       </div>
