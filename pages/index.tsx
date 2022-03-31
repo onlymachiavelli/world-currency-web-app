@@ -18,7 +18,7 @@ const Home = () => {
   //toPart
   const [toName, settName] = useState("United States Of America")
   const [toCode, settCode] = useState("us")
-  const [toCurrency, sttCurrency] = useState("USD")
+  const [toCurrency, sttCurrency] = useState("MAD")
 
   const [inValue, setV] = useState(0)
   useEffect(() => {
@@ -39,7 +39,7 @@ const Home = () => {
 
   const { datas, convert, response } = useConverter()
 
-  convert({ fromCurrency, inValue }, toCurrency)
+  convert({ fromCurrency, inValue }, toCurrency, datas)
 
   return (
     <main className="w-full h-screen ">
