@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react"
 import { isConstructorDeclaration } from "typescript"
 import callCurrency, { testCurrency } from "../apiCall/currencycall"
 const useConverter = () => {
-  const [response, setRes] = useState(5)
+  const [response, setRes] = useState(1)
   const [datas, setDatas]: any = useState()
 
   useEffect(() => {
     ;(async () => {
-      const res: any = await callCurrency()
+      const res: any = await testCurrency()
       if (res) {
         setDatas(res)
       }
@@ -15,7 +15,7 @@ const useConverter = () => {
   }, [datas])
 
   const convert = (from: any, to: any, datas: any) => {
-    if (response) {
+    if (datas && response) {
       const fromUSD: any = from.fromCurrency
       const fromV: any = datas["data"][fromUSD]["value"]
       const toV: any = datas["data"][to]
