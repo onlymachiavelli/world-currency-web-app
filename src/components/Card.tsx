@@ -5,6 +5,9 @@ import {MoneyBag,
 
 const Block = ({...props}) =>{
     console.log("Datas:",props.Datas)
+    if (!props.Datas) return (
+        <></>
+    )
     return (
         <div className="w-7/12 h-auto p-10 bg-blueSky rounded-2xl">
 
