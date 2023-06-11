@@ -5,7 +5,7 @@ import Block from '../src/components/Card'
 import useConverter from '../src/hooks/useConverter'
 
 const App = () =>{
-  const {world,getWorld,setWorld, getCurrent, from, getCountry, to} = useConverter()
+  const {world,getWorld,setWorld, getCurrent, from, getCountry, to, Test, select, setSel} = useConverter()
   const [list, setList] = React.useState("hidden")
   const [menu, setMenu] = React.useState("hidden")
 
@@ -13,13 +13,14 @@ const App = () =>{
 
   React.useEffect(()=>{
     getWorld()
-    getCurrent()
+    getCurrent()  
+    //Test()
     
   }, [])
 
 
 
-  console.log("from and to : " , from, to)
+
   return (
 
 
@@ -37,11 +38,19 @@ const App = () =>{
         
         World={setList}
         Datas={from}
+        Select={{
+          vl : 1, 
+          func : setSel
+        }}
         
         
         />
         <Block World={setList} 
           Datas={to}
+          Select={{
+            vl : 2,
+            func : setSel
+          }}
         />
       </div>
 
@@ -52,7 +61,7 @@ const App = () =>{
       <div className={`fixed w-full h-full bg-[#000000a8] top-0 left-0 ${list} items-center justify-center`}>
 
           <div className="w-2/3 h-2/3 overflow-auto bg-[#f0f0f0] rounded pb-5 shadow-lg">
-            <div className="w-full h-5 sticky top-0 bg-bg-[#f0f0f0] flex items-center justify-end pr-2 pt-2">
+            <div className="w-full h-7 sticky top-0 bg-bg-[#f0f0f0] flex items-center justify-end pr-2 pt-2">
               <button className="text-xl"
               onClick={()=>{
                 setList("hidden")
@@ -67,9 +76,17 @@ const App = () =>{
               world.map((item:any, index:any)=>{
 
                 return (
-                  <button className="block bg-[#f0efef] w-full mt-2  ">
+                  <button className="block bg-[#f0efef] w-full mt-2  "
+                    onClick={()=>{
+
+
+                        getCountry(item.iso1, select)
+                        setList("hidden")
+                    }} 
+                  
+                  >
                     <div key={index} className="w-full h-auto flex items-center justify-between gap-4 py-2 border-b hover:bg-[#cfcfcf] duration-500">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4">&nbsp;
                       <div className="w-12 h-12 rounded-full bg-cover no-repeat border-2 border-[#f79423]" style={{
                           backgroundImage: `url('https://flagcdn.com/w80/${item.iso1.toLowerCase()}.png')`,
                           

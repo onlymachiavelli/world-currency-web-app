@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@everapi/currencyapi-js": "^1.0.6",
     "@types/react": "^17.0.39",
     "axios": "^0.23.0",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.6.2"

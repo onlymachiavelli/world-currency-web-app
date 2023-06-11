@@ -2,9 +2,14 @@ import  * as React from 'react'
 import {MoneyBag,
     Down
 } from './icons'
+/*
 
+Select={{
+          vl : 1, 
+          func : setSel
+        }}
+*/
 const Block = ({...props}) =>{
-    console.log("Datas:",props.Datas)
     if (!props.Datas) return (
         <></>
     )
@@ -33,6 +38,7 @@ const Block = ({...props}) =>{
             <div className="flex items-center justify-center pt-5">
                 <button title="Change Currency" onClick={()=>{
                     props.World("flex")
+                    props.Select.func(props.Select.vl)
                 }}>
                     <Down Width="40"/>
                 </button>
