@@ -24,7 +24,9 @@ const Block = ({...props}) =>{
             </div>
 
             <div className="flex items-center justify-center pt-5">
-                <button title="Change Currency">
+                <button title="Change Currency" onClick={()=>{
+                    props.World("flex")
+                }}>
                     <Down Width="40"/>
                 </button>
             </div>
