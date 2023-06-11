@@ -5,7 +5,7 @@ import Block from '../src/components/Card'
 import useConverter from '../src/hooks/useConverter'
 
 const App = () =>{
-  const {world,getWorld,setWorld, getCurrent, from} = useConverter()
+  const {world,getWorld,setWorld, getCurrent, from, getCountry, to} = useConverter()
   const [list, setList] = React.useState("hidden")
   const [menu, setMenu] = React.useState("hidden")
 
@@ -14,11 +14,12 @@ const App = () =>{
   React.useEffect(()=>{
     getWorld()
     getCurrent()
+    
   }, [])
 
 
 
-  console.log(from)
+  console.log("from and to : " , from, to)
   return (
 
 
@@ -32,8 +33,16 @@ const App = () =>{
       <p className="block w-full text-center text-white font-bold text-xl ">Convert World Wide Currencies and CryptoCurrencies</p>
     
       <div className="w-11/12 h-auto p-10 bg-blue2 m-auto flex items-center justify-center rounded-2xl gap-4 ">
-        <Block World={setList} />
-        <Block World={setList} />
+        <Block 
+        
+        World={setList}
+        Datas={from}
+        
+        
+        />
+        <Block World={setList} 
+          Datas={to}
+        />
       </div>
 
 

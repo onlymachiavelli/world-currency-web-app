@@ -34,7 +34,10 @@ const useConverter = () =>{
 
     const getCurrent = async () =>{
         axios.get("https://api.db-ip.com/v2/free/self").then((res:any) =>{
-            setFrom(res.data)
+            
+
+            getCountry(res.data.countryCode, 1)
+            getCountry("us", 2)
         })
         .catch(e=>{
             console.log(e)

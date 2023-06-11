@@ -4,16 +4,20 @@ import {MoneyBag,
 } from './icons'
 
 const Block = ({...props}) =>{
+    console.log("Datas:",props.Datas)
     return (
         <div className="w-7/12 h-auto p-10 bg-blueSky rounded-2xl">
 
             <div className="flex w-full items-center  gap-4 pb-4">
-                <div className="w-12 h-12 rounded-full bg-cover no-repeat border-2 border-[#f79423]" style={{
+                <div className="w-20 h-14  bg-cover no-repeat border-2 border-[#f79423]" style={{
                     //bg image 
-                    backgroundImage: "url('https://flagcdn.com/w80/us.png')",
+                    backgroundImage: `url('https://flagcdn.com/w80/${props.Datas[0].iso1.toLowerCase()}.png')`,
                 }}></div>
                 <p className="text-white font-bold">
-                    USD Dollars
+                    {
+
+                        props.Datas[0].name + " " + props.Datas[0].currency
+                    }
                 </p>
             </div>
 
