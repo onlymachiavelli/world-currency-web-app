@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}", "./styles/**/*.{css}"],
   theme: {
     extend: {
       colors: {
@@ -12,6 +12,10 @@ module.exports = {
       fontFamily: {
         quick: "quick",
       },
+
+      screens :{
+        tab : "926px"
+      }
     },
   },
   plugins: [],

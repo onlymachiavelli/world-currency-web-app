@@ -1,82 +1,32 @@
-import React, { useState, useEffect, useContext } from "react"
-import Navbar from "../src/UI/Navbar"
-import callCurrency from "../src/apiCall/currencycall"
-import callGeo from "../src/apiCall/location"
-import Head from "next/head"
-import CurrBlock from "./../src/UI/currencyBlock"
-import currencyMenu from "../src/UI/currencyMeny"
-import worldDatas from "../src/apiCall/worldWide"
-import useConverter from "../src/hook/useConverter"
-import { countryCodes } from "../src/apiCall/co"
+import * as React from 'react'
+import Head from 'next/head'
+import Navbar from '../src/components/navbar'
+import Block from '../src/components/Card'
+const App = () =>{
 
-const Home = () => {
-  //from part
-  const [fromName, setfName] = useState("")
-  const [fromCode, setfCode] = useState("")
-  const [fromCurrency, setfCurrency] = useState("")
 
-  //toPart
-  const [toName, settName] = useState("United States Of America")
-  const [toCode, settCode] = useState("us")
-  const [toCurrency, sttCurrency] = useState("MAD")
-
-  const [inValue, setV] = useState(0)
-  useEffect(() => {
-    callGeo().then((res: any) => {
-      if (res) {
-        setfName(res.countryName)
-        setfCode(res.countryCode.toLowerCase())
-      }
-    })
-    if (fromCode) {
-      worldDatas("iso2", fromCode, false).then((res: any) => {
-        if (res) {
-          setfCurrency(res.data.currencyCode)
-        }
-      })
-    }
-  }, [fromCode])
-
-  const { datas, convert, response } = useConverter()
-
-  convert({ fromCurrency, inValue }, toCurrency, datas)
-
+  const [menu, setMenu] = React.useState("hidden")
   return (
-    <main className="w-full h-screen ">
-      <Head>
-        <title>Currency Converter</title>
-      </Head>
-      <Navbar />
 
-      <div className="w-full h-max ">
-        <p className="text-center text-sm md:text-xl text-white font-bold mt-4">
-          Converting World Wide Currencies and CryptoCurrencies
-        </p>
-        <div className="w-4/5 h-auto gap-3 bg-blue2 m-auto mt-7 rounded-lg p-14 flex items-center justify-center md:flex-row flex-col">
-          <CurrBlock
-            Flag={`https://flagcdn.com/h60/${fromCode}.png`}
-            enabled={true}
-            CountryName={fromName}
-            inputValue={inValue}
-            onChange={(e: any) => setV(e.target.value)}
-          />
-          <CurrBlock
-            enabled={true}
-            Flag={`https://flagcdn.com/w80/${toCode}.png`}
-            CountryName={toName}
-            onChange={(e: any) => e.target.value}
-            inputValue={response}
-          />
-        </div>
-        <button
-          className="block m-auto mt-5 text-white font-bold bg-darkGreen md:w-56 w-3/4 h-12 rounded-sm hover:bg-green duration-1000"
-          onClick={() => {}}
-        >
-          Convert
-        </button>
+
+    <main className="w-full h-screen flex  items-between justify-center flex-col flex-wrap">
+      <Head>
+        <title>Currency Converter App</title>
+      </Head>
+      <Navbar Menu={menu} onSet={setMenu}/>
+
+      <p className="block w-full text-center text-blue font-bold text-xl " >You're GAY</p>
+      <p className="block w-full text-center text-white font-bold text-xl ">Convert World Wide Currencies and CryptoCurrencies</p>
+    
+      <div className="w-11/12 h-auto p-10 bg-blue2 m-auto flex items-center justify-center rounded-2xl gap-4 ">
+        <Block/>
+        <Block/>
       </div>
+
+
+      <button className="h-14 rounded w-60 text-white m-auto bg-green">Convert</button>
     </main>
   )
 }
 
-export default Home
+export default App
