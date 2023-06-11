@@ -3,8 +3,9 @@ import Head from 'next/head'
 import Navbar from '../src/components/navbar'
 import Block from '../src/components/Card'
 import useConverter from '../src/hooks/useConverter'
+
 const App = () =>{
-  const {world,getWorld,setWorld} = useConverter()
+  const {world,getWorld,setWorld, getCurrent, from} = useConverter()
   const [list, setList] = React.useState("hidden")
   const [menu, setMenu] = React.useState("hidden")
 
@@ -12,9 +13,12 @@ const App = () =>{
 
   React.useEffect(()=>{
     getWorld()
+    getCurrent()
   }, [])
 
-  console.log(world)
+
+
+  console.log(from)
   return (
 
 
@@ -58,8 +62,6 @@ const App = () =>{
                     <div key={index} className="w-full h-auto flex items-center justify-between gap-4 py-2 border-b hover:bg-[#cfcfcf] duration-500">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-full bg-cover no-repeat border-2 border-[#f79423]" style={{
-                          //bg image 
-                          //backgroundImage: `url('https://flagcdn.com/w80/${item.iso1.toUpperCase()}.png')`,
                           backgroundImage: `url('https://flagcdn.com/w80/${item.iso1.toLowerCase()}.png')`,
                           
                       }}></div>
