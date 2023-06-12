@@ -36,7 +36,7 @@ const App = () =>{
     getCurrent()  
     getAllCurrencies()
     Calculate()
-  }, [])
+  })
 
 
 
