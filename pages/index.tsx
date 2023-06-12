@@ -49,7 +49,7 @@ const App = () =>{
       </Head>
       <Navbar Menu={menu} onSet={setMenu}/>
 
-      <p className="block w-full text-center text-blue font-bold text-xl " >You're GAY</p>
+      <p className="block w-full text-center text-blue font-bold text-xl " >You are GAY</p>
       <p className="block w-full text-center text-white font-bold text-xl ">Convert World Wide Currencies and CryptoCurrencies</p>
     
       <div className="w-11/12 h-auto p-10 bg-blue2 m-auto flex items-center justify-center rounded-2xl gap-4 ">
@@ -118,7 +118,7 @@ const App = () =>{
                         getCountry(item.iso1, select)
                         setList("hidden")
                     }} 
-                  
+                  key={index}
                   >
                     <div key={index} className="w-full h-auto flex items-center justify-between gap-4 py-2 border-b hover:bg-[#cfcfcf] duration-500">
                     <div className="flex items-center gap-4">&nbsp;
