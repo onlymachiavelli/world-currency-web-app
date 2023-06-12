@@ -5,7 +5,27 @@ import Block from '../src/components/Card'
 import useConverter from '../src/hooks/useConverter'
 
 const App = () =>{
-  const {world,getWorld,setWorld, getCurrent, from, getCountry, to, Test, select, setSel} = useConverter()
+  const { world,
+    getWorld,
+    setWorld, 
+    getCurrent,
+    from,
+    getCountry, 
+    to,
+    setFrom, 
+    setTo,
+
+    fromVal,
+    setFval,
+    toVal,
+    setTval , 
+
+    getAllCurrencies,
+    select, 
+    setSel,
+    currencies,
+    setCu, 
+    Calculate} = useConverter()
   const [list, setList] = React.useState("hidden")
   const [menu, setMenu] = React.useState("hidden")
 
@@ -14,10 +34,9 @@ const App = () =>{
   React.useEffect(()=>{
     getWorld()
     getCurrent()  
-    //Test()
-    
+    getAllCurrencies()
+    Calculate()
   }, [])
-
 
 
 
@@ -42,6 +61,11 @@ const App = () =>{
           vl : 1, 
           func : setSel
         }}
+
+        Values = {{
+          val : fromVal,
+          func : setFval
+        }}
         
         
         />
@@ -50,6 +74,11 @@ const App = () =>{
           Select={{
             vl : 2,
             func : setSel
+          }}
+
+          Values = {{
+            val : toVal,
+            func : setTval
           }}
         />
       </div>

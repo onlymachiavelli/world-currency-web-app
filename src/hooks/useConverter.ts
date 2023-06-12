@@ -3,15 +3,13 @@ import axios from 'axios'
 import CurrencyApi from '@everapi/currencyapi-js'
 import "dotenv/config"
 const useConverter = () =>{
-    const key : any = process.env.API_KEY || "f9AzIssqFw3Bz5QQxHeVOCa2JiCdaJIYBkpqIHmY"
-    console.log("key is : ", key)
-    const CURRENCY = new CurrencyApi(key )
     const [world, setWorld] = React.useState([])
     const [from, setFrom] :any = React.useState()
     const [to, setTo] : any= React.useState()
-    const [fromVal, setFval] = React.useState(1)
-    const [toVal, setTval] = React.useState(0)
-    const [select,  setSel] = React.useState()
+    const [fromVal, setFval] :any = React.useState(1)
+    const [toVal, setTval] :any=  React.useState(0)
+    const [select,  setSel]:any = React.useState()
+    const [currencies, setCu] :any = React.useState()
     const getWorld = async () =>{
         axios.get("https://worldapi.onrender.com/").then((res:any)=>{
             setWorld(res.data)
@@ -26,10 +24,12 @@ const useConverter = () =>{
         axios.get(`https://worldapi.onrender.com/by?field=iso1&target=${iso}`)
         .then((res:any) =>{
 
-            if(target === 1){
-                setFrom(res.data)
-            }else{
-                setTo(res.data)
+            if (res) {
+                if(target === 1 && res){
+                    setFrom(res.data)
+                }else{
+                    setTo(res.data)
+                }
             }
         })
         .catch(e=>{
@@ -43,8 +43,10 @@ const useConverter = () =>{
         axios.get("https://api.db-ip.com/v2/free/self").then((res:any) =>{
             
 
-            getCountry(res.data.countryCode, 1)
-            getCountry("us", 2)
+            if (res) {
+                getCountry(res.data.countryCode, 1)
+                getCountry("us", 2)
+            }
 
         })
         .catch(e=>{
@@ -53,18 +55,32 @@ const useConverter = () =>{
     }
 
 
-    const Test = async () =>{
-        CURRENCY.latest(
-{
-    base_currency:"usd", 
-    target_currency:"tnd"
-}            
-        ).then(res=>{
-            console.log("c is : ", res)
-        }).catch(e=>{
-            console.log("error ! " , e)
+    const getAllCurrencies = async () =>{
+        axios.get("https://api.currencyapi.com/v3/latest?apikey=f9AzIssqFw3Bz5QQxHeVOCa2JiCdaJIYBkpqIHmY").then(res=>{
+            if (res) setCu(res.data)
+        })
+        .catch(e=>{
+            console.log("error ! ")
         })
     }
+
+
+
+    const Calculate = async () =>{
+        //get the value of from 
+        //console.log("The currencies are : ", currencies.data.USD)
+
+
+
+    if (currencies){
+        const f : any = currencies.data[from[0].currency_code]
+        const t : any = currencies.data[to[0].currency_code]
+        console.log( "The f is : ", from)
+        //let res : any = (t.value / f.value) * fromVal
+        //setTval(res)
+    }
+    }
+
     return {
         world,
         getWorld,
@@ -81,11 +97,12 @@ const useConverter = () =>{
         toVal,
         setTval , 
 
-        Test,
-
-
+        getAllCurrencies,
         select, 
-        setSel
+        setSel,
+        currencies,
+        setCu, 
+        Calculate
     }
 
 }
