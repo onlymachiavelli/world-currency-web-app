@@ -73,11 +73,11 @@ const useConverter = () =>{
 
 
     if (currencies){
-        const f : any = currencies.data[from[0].currency_code]
-        const t : any = currencies.data[to[0].currency_code]
-        console.log( "The f is : ", from)
-        //let res : any = (t.value / f.value) * fromVal
-        //setTval(res)
+        const f : any = currencies.data[from[0].currency]
+        const t : any = currencies.data[to[0].currency]
+        //console.log( "The f is : ", )
+        let res : any = (t.value / f.value) * fromVal
+        setTval(res)
     }
     }
 

@@ -84,7 +84,13 @@ const App = () =>{
       </div>
 
 
-      <button className="h-14 rounded w-60 text-white m-auto bg-green">Convert</button>
+      <button className="h-14 rounded w-60 text-white m-auto bg-green"
+      
+      onClick={()=>{
+        Calculate()
+      }
+    }
+      >Convert</button>
       
 
       <div className={`fixed w-full h-full bg-[#000000a8] top-0 left-0 ${list} items-center justify-center`}>
