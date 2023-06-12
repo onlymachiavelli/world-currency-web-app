@@ -14,7 +14,7 @@ const Block = ({...props}) =>{
         <></>
     )
     return (
-        <div className="w-7/12 h-auto p-10 bg-blueSky rounded-2xl">
+        <div className="tablet:w-7/12 w-full  h-auto p-10 bg-blueSky rounded-2xl">
 
             <div className="flex w-full items-center  gap-4 pb-4">
                 <div className="w-20 h-14  bg-cover no-repeat border-2 border-[#f79423]" style={{

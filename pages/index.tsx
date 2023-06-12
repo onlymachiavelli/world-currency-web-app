@@ -43,16 +43,15 @@ const App = () =>{
   return (
 
 
-    <main className="w-full h-screen flex  items-between justify-center flex-col flex-wrap">
+    <main className="w-full h-screen flex  tablet:flex-col  flex-wrap ">
       <Head>
         <title>Currency Converter App</title>
       </Head>
       <Navbar Menu={menu} onSet={setMenu}/>
 
-      <p className="block w-full text-center text-blue font-bold text-xl " >You are GAY</p>
       <p className="block w-full text-center text-white font-bold text-xl ">Convert World Wide Currencies and CryptoCurrencies</p>
     
-      <div className="w-11/12 h-auto p-10 bg-blue2 m-auto flex items-center justify-center rounded-2xl gap-4 ">
+      <div className="w-11/12 h-auto p-10 bg-blue2 mt-5 m-auto flex  flex-col tab:flex-row  items-center justify-center rounded-2xl gap-4 ">
         <Block 
         
         World={setList}
@@ -84,7 +83,7 @@ const App = () =>{
       </div>
 
 
-      <button className="h-14 rounded w-60 text-white m-auto bg-green"
+      <button className="h-14 rounded w-60 text-white m-auto bg-green mt-5"
       
       onClick={()=>{
         Calculate()
